@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
-import apiClient from "./services/api-client";
-
-interface Props {}
+import { CanceledError } from "axios";
+import { useEffect, useState } from "react";
+import apiClient from "../services/api-client";
 
 interface Game {
   id: number;
@@ -12,14 +11,13 @@ interface FetchGamesResponse {
   count: number;
   results: Game[];
 }
-
-function GameGrid(props: Props) {
+const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
 
   const fetchGames = async () => {
     try {
-      const { data } = await apiClient.get<FetchGamesResponse>("/xgames");
+      const { data } = await apiClient.get<FetchGamesResponse>("/games");
       setGames(data.results);
     } catch (err) {
       setError((err as Error).message);
@@ -30,14 +28,7 @@ function GameGrid(props: Props) {
     fetchGames();
   }, []);
 
-  return (
-    <div>
-      {error && <p>{error}</p>}
-      {games.map((game) => (
-        <li key={game.id}>{game.name}</li>
-      ))}
-    </div>
-  );
-}
+  return { games, error };
+};
 
-export default GameGrid;
+export default useGames;
