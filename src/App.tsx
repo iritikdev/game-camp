@@ -14,13 +14,9 @@ function App() {
       </GridItem>
 
       <Show above="lg">
-        <GridItem gridArea={"aside"} bgColor="Yellow">
-          Aside
-        </GridItem>
+        <GridItem gridArea={"aside"}>Aside</GridItem>
       </Show>
-      <GridItem gridArea={"main"} bgColor="gold">
-        Main
-      </GridItem>
+      <GridItem gridArea={"main"}>Main</GridItem>
     </Grid>
   );
 }
