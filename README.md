@@ -1,0 +1,3 @@
+# GAME-CAMP Project
+
+This GitHub project is a web application that displays games from the RAWG Video games API, built using React and Chakra UI. The project includes various features to enhance user experience such as filtering by platform and genre, sorting by popularity and release date, and the ability to view game details and ratings. The React framework is utilized to create a dynamic user interface and seamless interaction with the API, while Chakra UI provides a modern and responsive design. This project is ideal for gamers and developers looking to explore React and API integration in web development.
