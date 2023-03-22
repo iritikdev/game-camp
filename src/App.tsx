@@ -1,4 +1,5 @@
 import { Button, Grid, GridItem, Show } from "@chakra-ui/react";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -8,8 +9,8 @@ function App() {
         lg: `"nav nav" "aside main"`,
       }}
     >
-      <GridItem gridArea={"nav"} bgColor="antiquewhite">
-        Nav
+      <GridItem gridArea={"nav"}>
+        <Navbar />
       </GridItem>
 
       <Show above="lg">
