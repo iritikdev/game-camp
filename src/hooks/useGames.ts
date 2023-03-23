@@ -24,11 +24,16 @@ const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
 
+  const [isLoading, setLoading] = useState(false);
+
   const fetchGames = async () => {
+    setLoading(true);
     try {
       const { data } = await apiClient.get<FetchGamesResponse>("/games");
       setGames(data.results);
+      setLoading(false);
     } catch (err) {
+      setLoading(false);
       setError((err as Error).message);
     }
   };
@@ -37,7 +42,7 @@ const useGames = () => {
     fetchGames();
   }, []);
 
-  return { games, error };
+  return { games, error, isLoading };
 };
 
 export default useGames;
