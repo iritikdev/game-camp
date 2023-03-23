@@ -32,7 +32,7 @@ function GamePlatformIcon({ platforms }: Props) {
   };
   return (
     <>
-      <HStack my={2}>
+      <HStack my={3}>
         {platforms.map(({ platform }) => (
           <Icon
             key={platform.id}
