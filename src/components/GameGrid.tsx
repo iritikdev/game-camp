@@ -8,7 +8,7 @@ interface Props {}
 function GameGrid(props: Props) {
   const { games, error, isLoading } = useGames();
 
-  const skeletons = [1, 2, 3, 4, 5, 6];
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   return (
     <>
       {error && <p>{error}</p>}
