@@ -15,7 +15,7 @@ function GameGrid(props: Props) {
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
         spacing="5"
-        padding={10}
+        padding={8}
         justifyContent="center"
       >
         {isLoading && skeletons.map((s) => <GameCardSkeleton key={s} />)}

@@ -20,7 +20,7 @@ function App() {
       </GridItem>
 
       <Show above="lg">
-        <GridItem gridArea={"aside"} paddingX="5">
+        <GridItem gridArea={"aside"} paddingX="5" py={"6"}>
           <GenreList />
         </GridItem>
       </Show>

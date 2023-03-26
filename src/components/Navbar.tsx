@@ -1,12 +1,14 @@
-import { HStack, Image } from "@chakra-ui/react";
+import { HStack, Text } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
 
 interface Props {}
 
 function Navbar({}: Props) {
   return (
-    <HStack justifyContent={"space-between"} py="2" px={"3"}>
-      <Image src="/vite.svg" />
+    <HStack justifyContent={"space-between"} py="4" px={"5"}>
+      <Text letterSpacing={"4"} fontWeight="600" fontSize={"22px"}>
+        RAWG
+      </Text>
 
       <ColorModeSwitch />
     </HStack>
