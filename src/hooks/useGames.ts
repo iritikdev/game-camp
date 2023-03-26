@@ -26,20 +26,25 @@ const useGames = () => {
 
   const [isLoading, setLoading] = useState(false);
 
-  const fetchGames = async () => {
+  const fetchGames = async (controller: AbortController) => {
     setLoading(true);
     try {
-      const { data } = await apiClient.get<FetchGamesResponse>("/games");
+      const { data } = await apiClient.get<FetchGamesResponse>("/games", {
+        signal: controller.signal,
+      });
       setGames(data.results);
       setLoading(false);
     } catch (err) {
-      setLoading(false);
+      if (err instanceof CanceledError) return;
       setError((err as Error).message);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchGames();
+    const controller = new AbortController();
+    fetchGames(controller);
+    return () => controller.abort();
   }, []);
 
   return { games, error, isLoading };
