@@ -5,7 +5,7 @@ import CriticScore from "./CriticScore";
 import GamePlatformIcon from "./GamePlatformIcon";
 import getOptimizedImageUrl from "../services/image-url";
 import GameCardContainer from "./GameCardContainer";
-import Emoji from "./emoji";
+import Emoji from "./Emoji";
 
 interface Props {
   game: Game;
