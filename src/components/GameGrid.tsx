@@ -15,15 +15,10 @@ function GameGrid({ selectedGenre }: Props) {
   return (
     <>
       {error && <p>{error}</p>}
-      {selectedGenre && (
-        <Text fontSize={"2xl"} pl="8" fontWeight={"bold"}>
-          {selectedGenre?.name + " Games"}
-        </Text>
-      )}
+
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
         spacing="5"
-        padding={8}
         justifyContent="center"
       >
         {isLoading && skeletons.map((s) => <GameCardSkeleton key={s} />)}
