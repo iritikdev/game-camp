@@ -26,7 +26,10 @@ interface Props {
   selectedGenre: Genre | null;
 }
 
-const useGames = (selectedGenre: Genre | null) => {
+const useGames = (
+  selectedGenre: Genre | null,
+  selectedPlatform: Platform | null
+) => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
 
@@ -37,7 +40,7 @@ const useGames = (selectedGenre: Genre | null) => {
     try {
       const { data } = await apiClient.get<FetchGamesResponse>("/games", {
         signal: controller.signal,
-        params: { genres: selectedGenre?.id },
+        params: { genres: selectedGenre?.id, platfroms: selectedPlatform?.id },
       });
       setGames(data.results);
       setLoading(false);
@@ -48,14 +51,11 @@ const useGames = (selectedGenre: Genre | null) => {
     }
   };
 
-  useEffect(
-    () => {
-      const controller = new AbortController();
-      fetchGames(controller);
-      return () => controller.abort();
-    },
-    selectedGenre ? [selectedGenre?.id] : []
-  );
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchGames(controller);
+    return () => controller.abort();
+  }, [selectedGenre?.id, selectedPlatform?.id]);
 
   return { games, error, isLoading };
 };
