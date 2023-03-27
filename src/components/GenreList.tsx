@@ -1,4 +1,12 @@
-import { Button, HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
+import {
+  Button,
+  HStack,
+  Image,
+  Link,
+  List,
+  ListItem,
+  Text,
+} from "@chakra-ui/react";
 import useGenres, { Genre } from "./../hooks/useGenres";
 import getOptimizedImageUrl from "./../services/image-url";
 import GenreListSkeleten from "./GenreListSkeleten";
@@ -24,15 +32,12 @@ function GenreList({ onSelectGenre, selectedGenre }: Props) {
               boxSize="32px"
               borderRadius={8}
             />
-            <Button
+            <Link
               onClick={() => onSelectGenre(genre)}
-              variant={"link"}
               fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
             >
-              {genre.name.length > 12
-                ? genre.name.substring(0, 10) + "..."
-                : genre.name}
-            </Button>
+              {genre.name}
+            </Link>
           </HStack>
         </ListItem>
       ))}

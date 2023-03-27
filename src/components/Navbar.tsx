@@ -6,8 +6,8 @@ interface Props {}
 function Navbar({}: Props) {
   return (
     <HStack justifyContent={"space-between"} py="4" px={"5"}>
-      <Text letterSpacing={"4"} fontWeight="600" fontSize={"22px"}>
-        RAWG
+      <Text fontWeight="800" fontSize={"18px"}>
+        R A W G
       </Text>
 
       <ColorModeSwitch />

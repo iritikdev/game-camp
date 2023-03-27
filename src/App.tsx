@@ -30,15 +30,23 @@ function App() {
 
       <Show above="lg">
         <GridItem gridArea={"aside"} paddingX="5" py={"6"}>
+          <Text fontSize={"2xl"} fontWeight={"bold"} mb="2" cursor={"pointer"}>
+            Genres
+          </Text>
           <GenreList
             onSelectGenre={(genre) => setSelectedGenre(genre)}
             selectedGenre={selectedGenre}
           />
         </GridItem>
       </Show>
-      <GridItem gridArea={"main"} pt="6" px={6}>
+      <GridItem gridArea={"main"} py="6" px={6}>
+        {!selectedGenre && (
+          <Text fontSize={"4xl"} fontWeight={"bold"}>
+            {"All Games"}
+          </Text>
+        )}
         {selectedGenre && (
-          <Text fontSize={"2xl"} fontWeight={"bold"}>
+          <Text fontSize={"4xl"} fontWeight={"bold"}>
             {selectedGenre?.name + " Games"}
           </Text>
         )}
